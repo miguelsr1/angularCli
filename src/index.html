@@ -1,14 +1,76 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Paquete</title>
-  <base href="/">
+<html>
+    <head>
+        <title>PrimeNG QuickStart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" type="text/css" href="assets/resources/icons/css/font-awesome.min.css" /> 
+        <link rel="stylesheet" type="text/css" href="assets/resources/css/default.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/resources/css/site.css"/>
+        <!-- 1. Load libraries -->
+        <!-- Polyfill(s) for older browsers >
+        <script src="node_modules/core-js/client/shim.min.js"></script>
+        <script src="node_modules/zone.js/dist/zone.js"></script>
+        <script src="node_modules/reflect-metadata/Reflect.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script-->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
+        
+        <style>
+            body {
+                font-family: "Roboto","Trebuchet MS",Arial,Helvetica,sans-serif;
+                font-size: 12px !important;
+                background-color: white;
+                /*background-color: #85b2d3;*/
+            }
+            .ui-widget-content{
+                font-size: 12px;
+            }
+            .ui-widget{
+                font-size: 12px;
+            }
+            .ui-column-title{
+                font-size: 12px;
+            }
+            input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { /* display: none; <- Crashes Chrome on hover */ -webkit-appearance: none; margin: 0; /* <-- Apparently some margin are still there even though it's hidden */ }
+
+            #loading {
+                position:relative;
+                height: 80%;
+                width:100%;
+            }
+
+            #loading img {
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                margin:auto;
+            }
+        </style>
+        <base href="/">
+    </head>
+    <!-- 3. Display the application -->
+    <body>
+        <div id="layout-topbar" class="ShadowGray">
+            <div id="layout-topbar-indent">
+                <div class="columnRight">
+                    <img src="assets/resources/image/mined.png" alt="mined" />
+                </div>
+                <div class="columnMid">
+                    <br/><font style="font-size: 20px; color: black;">Ministerio de Educación</font>
+                    <br/><font style="font-size: 18px; color: black;">Sistema de Paquetes Escolar</font>
+                </div>
+                <div class="columnLeft">
+                    <img src="assets/resources/image/escudo.png" alt="escudo" />
+                </div>
+
+            </div>
+        </div>
+    <app-root>
+        <div id="loading">
+            <img src="assets/resources/image/cargando.gif" alt="loading" />
+        </div>
+    </app-root>
 </body>
 </html>

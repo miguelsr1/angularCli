@@ -1,0 +1,113 @@
+<div>
+    <div id="CONTENTSIDE">
+        <div id="CONTENTSIDEindent">
+            
+            <p-menubar [model]="itemsMenu"></p-menubar>
+            <p-panel header="Filtro de búsqueda">
+                <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-7">
+                            <div class="ui-grid-col-2"><label >Código del C.E.</label></div>
+                            <div class="ui-grid-col-1">
+                                <input type="text" pInputText [(ngModel)]="entidad.codigoEntidad" (ngModelChange)="valuechange($event)" pInputText/>
+                            </div>
+                            <div class="ui-grid-col-8">
+                                <input type="text" pInputText [(ngModel)]="entidad.nombre" pInputText disabled="true" />
+                            </div>
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <div class="ui-grid-col-4"><label for="txtModalidad">Modalidad del C.E.</label></div>
+                            <div class="ui-grid-col-2"><input size="20" pInputText id="txtModalidad" [(ngModel)]="entidad.inicialesModalidad" disabled="true" /></div>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="first">Datos del Director del Centro Escolar</h4>
+                <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" style="margin: 10px 0px">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-7">
+                            <div class="ui-grid-col-2"><label for="txtNombre">Nombre</label></div>
+                            <div class="ui-grid-col-10"><input pInputText id="txtNombre" disabled="false" [(ngModel)]="organizacion.nombreMiembro"/></div>
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <div class="ui-grid-col-2"><label for="txtTelefono">Teléfono</label></div>
+                            <div class="ui-grid-col-4"><input pInputText id="txtTelefono" [(ngModel)]="organizacion.telDirector"/></div>
+                        </div>
+                    </div>
+                </div>   
+            </p-panel>
+            <p-panel header="Estadisticas de Censo Rápido y Asignación Prespuestaria">
+                <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" style="margin: 10px 0px">
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2" _ngcontent-ymx-6="">Nivel/Ciclo</div>
+                        <div class="ui-g-2" _ngcontent-ymx-6="">
+                            <div class="ui-g-12" _ngcontent-ymx-6="">No Alumnos</div>
+                            <div class="ui-g-6" _ngcontent-ymx-6="">Femenino</div>
+                            <div class="ui-g-6" _ngcontent-ymx-6="">Masculino</div>
+                        </div>
+                        <div class="ui-g-1" _ngcontent-ymx-6="">Total</div>
+                        <div class="ui-g-6" _ngcontent-ymx-6="">
+                            <div class="ui-g-12" _ngcontent-ymx-6="">Presupuesto</div>
+                            <div class="ui-g-4" _ngcontent-ymx-6="">Uniformes</div>
+                            <div class="ui-g-4" _ngcontent-ymx-6="">Útiles</div>
+                            <div class="ui-g-4" _ngcontent-ymx-6="">Zapatos</div>
+                        </div>
+                    </div>
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2">Parvularia</div>
+                        <div class="ui-g-1"><input type="text" pInputText style="text-align: right;" pInputText id="txtParF" [(ngModel)]="estadisticaPar.femenimo"/></div>
+                        <div class="ui-g-1"><input type="text" pInputText style="text-align: right;" pInputText id="txtParM" [(ngModel)]="estadisticaPar.masculino"/></div>
+                        <div class="ui-g-1" style="text-align: right;">{{estadisticaPar.femenimo+estadisticaPar.masculino}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUniPar() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUtiPar() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalZapPar() | currency:'USD':true:'1.2-2'}}</div>
+                    </div>
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2">I Ciclo</div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtICicloF" [(ngModel)]="estadisticaICiclo.femenimo"/></div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtICicloM" [(ngModel)]="estadisticaICiclo.masculino"/></div>
+                        <div class="ui-g-1" style="text-align: right;">{{estadisticaICiclo.femenimo+estadisticaICiclo.masculino}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUniICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUtiICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalZapICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                    </div>
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2">II Ciclo</div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtIICicloF" [(ngModel)]="estadisticaIICiclo.femenimo"/></div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtIICicloM" [(ngModel)]="estadisticaIICiclo.masculino"/></div>
+                        <div class="ui-g-1" style="text-align: right;">{{estadisticaIICiclo.femenimo+estadisticaIICiclo.masculino}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUniIICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUtiIICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalZapIICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                    </div>
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2">III Ciclo</div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtIIICicloF" [(ngModel)]="estadisticaIIICiclo.femenimo"/></div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtIIICicloM" [(ngModel)]="estadisticaIIICiclo.masculino"/></div>
+                        <div class="ui-g-1" style="text-align: right;">{{estadisticaIIICiclo.femenimo+estadisticaIIICiclo.masculino}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUniIIICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUtiIIICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalZapIIICiclo() | currency:'USD':true:'1.2-2'}}</div>
+                    </div>
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2">Bachillerato</div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtBacF" [(ngModel)]="estadisticaBar.femenimo"/></div>
+                        <div class="ui-g-1"><input type="number" style="text-align: right;" pInputText id="txtBacM" [(ngModel)]="estadisticaBar.masculino"/></div>
+                        <div class="ui-g-1" style="text-align: right;">{{estadisticaBar.femenimo + estadisticaBar.masculino}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUniBar() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalUtiBar() | currency:'USD':true:'1.2-2'}}</div>
+                        <div class="ui-g-2" style="text-align: right;">{{getTotalZapBar() | currency:'USD':true:'1.2-2'}}</div>
+                    </div>
+                    <div class="ui-g" _ngcontent-ymx-6="">
+                        <div class="ui-g-2" _ngcontent-ymx-6="">Total</div>
+                        <div class="ui-g-1" _ngcontent-ymx-6="" style="text-align: right;">{{ getTotalFem() }}</div>
+                        <div class="ui-g-1" _ngcontent-ymx-6="" style="text-align: right;">{{ getTotalMas() }}</div>
+                        <div class="ui-g-1" _ngcontent-ymx-6="" style="text-align: right;">{{ getTotal() }}</div>
+                        <div class="ui-g-2" _ngcontent-ymx-6="" style="text-align: right;">{{ getTotalUni() | currency:'USD':true:'1.2-2' }}</div>
+                        <div class="ui-g-2" _ngcontent-ymx-6="" style="text-align: right;">{{ getTotalUti() | currency:'USD':true:'1.2-2' }}</div>
+                        <div class="ui-g-2" _ngcontent-ymx-6="" style="text-align: right;">{{ getTotalZap() | currency:'USD':true:'1.2-2' }}</div>
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+    </div>
+</div>
