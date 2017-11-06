@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
-import {EntidadEducativa} from '../../modelo/entidadeducativa/entidadeducativa';
+import {EntidadEducativa} from '../../modelo/entidadeducativa/EntidadEducativa';
 import {EstadisticaCenso} from '../../modelo/estadisticacenso/EstadisticaCenso';
 import {OrganizacionEducativa} from '../../modelo/organizacioneducativa/OrganizacionEducativa';
 
@@ -53,7 +53,6 @@ export class EntidadService {
     }
 
     addAllEstadistica(lstApp: EstadisticaCenso[]) {
-        //let headers = new Headers();
         return this.http.post(this.urlAddAplicacion + 'addAllEstadisticas', JSON.stringify(lstApp));//.subscribe();
     }
 
@@ -61,7 +60,7 @@ export class EntidadService {
         const headers = new HttpHeaders().set("Content-Type", "application/json");
 
         return this.http
-            .put(this.urlAddAplicacion + 'updEstadistica', JSON.stringify(est), {headers})
+            .put(this.urlAddAplicacion + 'updEstadistica', {headers})
             .subscribe();
     }
 }
