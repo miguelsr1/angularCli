@@ -21,10 +21,17 @@
             "styles": [
                 "../node_modules/font-awesome/css/font-awesome.min.css",
                 "../node_modules/primeng/resources/primeng.min.css",
-                "../node_modules/primeng/resources/themes/omega/theme.css" ,
+                "assets/resources/css/paradise-layout/css/layout-blue.css",
+                "assets/resources/css/paradise-layout/css/animate.css",
+                "assets/resources/css/paradise-layout/css/nanoscroller.css",
                 "styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+                "assets/resources/css/paradise-layout/js/nanoscroller.js",
+                "assets/resources/css/paradise-layout/js/layout.js",
+                "assets/resources/css/paradise-layout/js/jquery/jquery-plugins.js",
+                "assets/resources/css/paradise-layout/js/jquery/jquery.js"
+            ],
             "environmentSource": "environments/environment.ts",
             "environments": {
                 "dev": "environments/environment.ts",

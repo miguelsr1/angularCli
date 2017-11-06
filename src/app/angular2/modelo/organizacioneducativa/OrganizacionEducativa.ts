@@ -1,6 +1,6 @@
-export interface OrganizacionEducativa {
-    idOrganizacionEducativa?;
-    codigoEntidad?;
-    nombreMiembro?;
-    telDirector?;
+export class OrganizacionEducativa {
+    idOrganizacionEducativa: number;
+    codigoEntidad: string;
+    nombreMiembro: string;
+    telDirector: string;
 }

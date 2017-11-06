@@ -2,7 +2,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+//import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
 import {AppComponent} from './app.component';
@@ -21,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ],
     imports: [
         BrowserModule,AppRoutingModule,BrowserAnimationsModule,
-        AutoCompleteModule, GalleriaModule, MenuModule, BrowserModule, PanelMenuModule, FormsModule, HttpModule, PanelModule, MenubarModule, InputTextModule, PasswordModule, DataTableModule, ButtonModule, DialogModule, DropdownModule, CalendarModule, GrowlModule, CheckboxModule
+        AutoCompleteModule, GalleriaModule, MenuModule, BrowserModule, PanelMenuModule, FormsModule, HttpClientModule, PanelModule, MenubarModule, InputTextModule, PasswordModule, DataTableModule, ButtonModule, DialogModule, DropdownModule, CalendarModule, GrowlModule, CheckboxModule
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
